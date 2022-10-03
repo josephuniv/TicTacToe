@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User1/IntelliJIDEAProjects/TicTacToe/app/src/main/res/layout/activity_main.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/User1/IntelliJIDEAProjects/TicTacToe/app/src/main/res/layout-land/activity_main.xml" value="0.16145833333333334" />
+        <entry key="..\:/Users/User1/IntelliJIDEAProjects/TicTacToe/app/src/main/res/layout/activity_main.xml" value="0.28703703703703703" />
       </map>
     </option>
   </component>
