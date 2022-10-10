@@ -1,12 +1,12 @@
 package com.example.tictactoe;
 
 import android.content.SharedPreferences;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
@@ -62,6 +62,24 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         savedValues = getPreferences(MODE_PRIVATE);
 
         reset();
+
+//        SharedPreferences.Editor editor = savedValues.edit();
+//        editor.putString("b00", "");
+//        editor.putString("b01", "");
+//        editor.putString("b02", "");
+//        editor.putString("b10", "");
+//        editor.putString("b11", "");
+//        editor.putString("b12", "");
+//        editor.putString("b20", "");
+//        editor.putString("b21", "");
+//        editor.putString("b22", "");
+//
+//        editor.putString("tView", "Player X's turn");
+//
+//        editor.putInt("play", 1);
+//        editor.putInt("counter", 0);
+//
+//        editor.commit();
     }
 
     public void onPause() {
@@ -80,6 +98,16 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         editor.putInt("play", player);
         editor.putInt("counter", count);
+
+        editor.putString("a00", a[0][0]);
+        editor.putString("a01", a[0][1]);
+        editor.putString("a02", a[0][2]);
+        editor.putString("a10", a[1][0]);
+        editor.putString("a11", a[1][1]);
+        editor.putString("a12", a[1][2]);
+        editor.putString("a20", a[2][0]);
+        editor.putString("a21", a[2][1]);
+        editor.putString("a22", a[2][2]);
 
         editor.commit();
         super.onPause();
@@ -113,6 +141,33 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         player = savedValues.getInt("play", 1);
         count = savedValues.getInt("counter", 0);
+
+        a[0][0] = savedValues.getString("a00", "");
+        a[0][1] = savedValues.getString("a01", "");
+        a[0][2] = savedValues.getString("a02", "");
+        a[1][0] = savedValues.getString("a10", "");
+        a[1][1] = savedValues.getString("a11", "");
+        a[1][2] = savedValues.getString("a12", "");
+        a[2][0] = savedValues.getString("a20", "");
+        a[2][1] = savedValues.getString("a21", "");
+        a[2][2] = savedValues.getString("a22", "");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_tictactoe, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_newgame_id:
+                reset();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void reset() {
